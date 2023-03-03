@@ -1,5 +1,3 @@
-USE SpotifyClone;
-
 SELECT COUNT(m.music_name) AS `cancoes`, 
        COUNT(DISTINCT a.artist_name) AS `artistas`, 
        COUNT(DISTINCT al.album_name) AS `albuns` 

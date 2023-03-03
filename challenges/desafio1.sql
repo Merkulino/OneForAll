@@ -19,22 +19,23 @@ CREATE TABLE SpotifyClone.user(
     `username` VARCHAR(45) NOT NULL,
     `age` INT NOT NULL,
     `id_subscription` INT NOT NULL,
+    `subscription_date` DATE NOT NULL,
     FOREIGN KEY (`id_subscription`)
     REFERENCES SpotifyClone.subscription (`id`)
 ) engine = InnoDB;
 
-INSERT INTO SpotifyClone.user (`username`, `age`, `id_subscription`)
+INSERT INTO SpotifyClone.user (`username`, `age`, `id_subscription`, `subscription_date`)
 VALUES
-  ('Barbara Liskov', 82, 1),
-  ('Robert Cecil Martin', 52, 1),
-  ('Ada Lovelace', 37, 2),
-  ('Martin Fowler', 46, 2),
-  ('Sandi Metz', 58, 2),
-  ('Paulo Freire', 19, 3),
-  ('Bell Hooks', 26, 3),
-  ('Christopher Alexander', 85, 4),
-  ('Judith Butler', 45, 4),
-  ('Jorge Amado', 58, 4);
+  ('Barbara Liskov', 82, 1, '2019-10-20'),
+  ('Robert Cecil Martin', 52, 1, '2017-01-06'),
+  ('Ada Lovelace', 37, 2, '2017-12-30'),
+  ('Martin Fowler', 46, 2, '2017-01-17'),
+  ('Sandi Metz', 58, 2, '2018-04-29'),
+  ('Paulo Freire', 19, 3, '2018-02-14'),
+  ('Bell Hooks', 26, 3, '2018-01-05'),
+  ('Christopher Alexander', 85, 4, '2019-06-05'),
+  ('Judith Butler', 45, 4, '2020-05-13'),
+  ('Jorge Amado', 58, 4, '2017-02-17');
 
 CREATE TABLE SpotifyClone.artist(
     `id` INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
@@ -123,8 +124,8 @@ VALUES
 
 CREATE TABLE SpotifyClone.artist_user_follows(
     `id` INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
-    id_user INT NOT NULL,
-    id_artist INT,
+    id_user INT NOT NULL PRIMARY KEY UNIQUE,
+    id_artist INT NOT NULL PRIMARY KEY UNIQUE,
     FOREIGN KEY (id_user)
     REFERENCES SpotifyClone.user (`id`),
     FOREIGN KEY (id_artist)
@@ -147,3 +148,5 @@ VALUES
   (7, 6),
   (9, 3),
   (10, 2);
+
+USE SpotifyClone;

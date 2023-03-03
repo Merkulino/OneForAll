@@ -1,5 +1,3 @@
-USE SpotifyClone;
-
 SELECT username AS `pessoa_usuaria`,
 		COUNT(id_subscription) AS `musicas_ouvidas`,
         SUM(ROUND(duration / 60, 2)) AS total_minutos
