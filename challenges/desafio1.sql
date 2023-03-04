@@ -9,7 +9,7 @@ CREATE TABLE SpotifyClone.subscription(
 
 INSERT INTO SpotifyClone.subscription (`subscription_name`, `value`)
 VALUES
-  ('gratuito', 0),
+  ('gratuito', 0.00),
   ('familiar', 7.99),
   ('universitario', 5.99),
   ('pessoal', 6.99);
