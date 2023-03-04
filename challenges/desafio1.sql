@@ -150,4 +150,30 @@ VALUES
   (9, 3),
   (10, 2);
 
+CREATE TABLE SpotifyClone.favorite_songs(
+    id_user INT NOT NULL,
+    id_music INT NOT NULL,
+    PRIMARY KEY (`id_user`, `id_music`),
+    FOREIGN KEY (id_user)
+    REFERENCES SpotifyClone.user (`id`),
+    FOREIGN KEY (id_music)
+    REFERENCES SpotifyClone.music (`id`)
+) engine = InnoDB;
+
+INSERT INTO SpotifyClone.favorite_songs (id_user, id_music)
+VALUES
+  (1, 3),
+  (1, 6),
+  (1, 10),
+  (2, 4),
+  (3, 1),
+  (3, 3),
+  (4, 7),
+  (4, 4),
+  (5, 10),
+  (5, 2),
+  (8, 4),
+  (9, 7),
+  (10, 3);
+
 USE SpotifyClone;
